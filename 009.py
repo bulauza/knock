@@ -1,4 +1,4 @@
-#!/usr/bim/python3
+#!/usr/bin/python3
 # cording:utf-8
 
 import random
@@ -30,4 +30,4 @@ if __name__ == '__main__':
              """
 
     result = Typoglycemia(target)
-    print(result)
+   print(result)
