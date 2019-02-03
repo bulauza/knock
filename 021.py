@@ -1,4 +1,4 @@
-#!/usr/bim/python3
+#/usr/bim/python3
 # cording:utf-8
 import gzip
 import json
