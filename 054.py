@@ -16,8 +16,11 @@ def tokenization():
 
 def read_xml():
     root = ET.parse(fname_parsed)
-    [print(word.text) for word in root.iter('word')]
-    
+    for element in root.iter('token'):
+        word = element.findtext('word')
+        lemma = element.findtext('lemma')
+        pos = element.findtext('POS')
+        print("{}\t{}\t{}".format(word,lemma,pos))
 
 if __name__ == '__main__':
     tokenization()

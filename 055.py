@@ -5,8 +5,8 @@ import os
 import subprocess
 import xml.etree.ElementTree as ET
 
-fname = "unlimited.txt"
-fname_parsed = "unlimited.txt.xml"
+fname = "nlp.txt"
+fname_parsed = fname+".xml"
 
 def tokenization():
     if os.path.exists(fname_parsed):
@@ -16,8 +16,12 @@ def tokenization():
 
 def read_xml():
     root = ET.parse(fname_parsed)
-    [print(word.text) for word in root.iter('word')]
-    
+    for i,element in enumerate(root.iter()):
+        if element.findtext('NER') == 'PERSON':
+            print(element.findtext('word'))
+
+ #   for element in root.iterfind('./document/sentences/sentence/tokens/token[NER="PERSON"]'):
+#        print(element.findtext('word'))
 
 if __name__ == '__main__':
     tokenization()
